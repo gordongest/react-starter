@@ -2,16 +2,27 @@ import React from 'react';
 import movieListData from '../data/movieListData.js';
 import NavBar from './NavBar.js';
 import MovieList from './MovieList.js';
-import SearchBar from './Search.js';
+import SearchBar from './SearchBar.js';
 
 
 class App extends React.Component {
   constructor() {
     super();
+
+    this.state = {
+      clicked: 0,
+      searchVal: ''
+    }
+
+    this.onSubmit = this.onSubmit.bind(this)
   }
 
-  handleClick(e) {
-    console.log('clicked!')
+  onSubmit(e) {
+    console.log('clicked!');
+    this.setState({
+      clicked: this.state.clicked + 1,
+      searchVal: this.state.searchVal + 'T-Y '
+    }, function() {console.log(this.state)});
   }
 
   render() {
@@ -23,7 +34,7 @@ class App extends React.Component {
         <NavBar />
       </nav>
       <div>
-        <SearchBar handleClick={this.handleClick} />
+        <SearchBar handleClick={this.onSubmit} />
         <div className="movie-list">
           <MovieList movies={movieListData} />
         </div>
