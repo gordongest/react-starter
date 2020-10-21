@@ -1,10 +1,23 @@
 import React from 'react';
+import movieListData from '../data/movieListData.js';
+import NavBar from './NavBar.js';
+import MovieList from './MovieList.js';
+
 
 class App extends React.Component {
-  render(){
-    return(
+  constructor() {
+    super();
+  }
+
+  render() {
+
+    return (
+
     <div>
-      Starter App component - hello there
+      <NavBar />
+      <div>
+        <MovieList movies={movieListData} />
+      </div>
     </div>
   )}
 }

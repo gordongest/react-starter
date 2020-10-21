@@ -1,0 +1,11 @@
+import React from 'react';
+
+var movieListData = [
+  {title: 'Mean Girls'},
+  {title: 'Hackers'},
+  {title: 'The Grey'},
+  {title: 'Sunshine'},
+  {title: 'Ex Machina'},
+];
+
+export default movieListData;
