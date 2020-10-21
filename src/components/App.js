@@ -10,18 +10,18 @@ class App extends React.Component {
     super();
 
     this.state = {
-      clicked: 0,
       searchVal: ''
     }
 
-    this.onSubmit = this.onSubmit.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  onSubmit(e) {
+
+
+  handleSubmit(val) {
     console.log('clicked!');
     this.setState({
-      clicked: this.state.clicked + 1,
-      searchVal: this.state.searchVal + 'T-Y '
+      searchVal: val
     }, function() {console.log(this.state)});
   }
 
@@ -34,7 +34,7 @@ class App extends React.Component {
         <NavBar />
       </nav>
       <div>
-        <SearchBar handleClick={this.onSubmit} />
+        <SearchBar handleSubmit={this.handleSubmit} />
         <div className="movie-list">
           <MovieList movies={movieListData} />
         </div>

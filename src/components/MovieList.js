@@ -6,7 +6,7 @@ var MovieList = ({movies}) => (
   <div>
     <ul>
       {movies.map(movie =>
-      <MovieListEntry movie={movie} />
+      <MovieListEntry key={movie.key} movie={movie} />
       )}
     </ul>
   </div>
