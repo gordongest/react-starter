@@ -29,20 +29,19 @@ class App extends React.Component {
   }
 
   handleSearchSubmit(val) {
-    console.log('search!');
+    console.log('searched!');
     this.setState({
       searchVal: val
     }, function() {console.log(this.state)});
   }
 
   handleAddSubmit(val) {
-    console.log('add!');
-    let newMovie = {title: val};
+    console.log('added!');
+    let newMovie = {title: val, watched: false};
     this.setState({
       movieList: [...this.state.movieList, newMovie],
       key: this.state.key + 1
-    })
-    // , function() {console.log(this.state)});
+    }, function() {console.log(this.state)});
   }
 
   render() {

@@ -1,5 +1,6 @@
 import React from 'react';
 import MovieListEntry from './MovieListEntry.js';
+import noMovies from './noMovies.js';
 
 class MovieList extends React.Component {
 
@@ -31,21 +32,12 @@ class MovieList extends React.Component {
 
       <div>
         <ul>
-          {console.log(this.props)}
           {movies.map((movie) => {
-            if (!movies.length) {
-              <div>Add some movies!</div>
-            }
             if (!searchVal.length) {
               return <MovieListEntry key={movie.key} movie={movie} />
             } else if (searchVal.length) {
               if (movie.title.toLowerCase().includes(searchVal.toLowerCase())) {
                 return <MovieListEntry key={movie.key} movie={movie} />
-              {/* } else {
-                this.state.noMatch++;
-                if (this.state.noMatch < 2) {
-                  return <div>No movies match your search.</div>
-                } */}
               }
             }
           })}
