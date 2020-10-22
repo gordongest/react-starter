@@ -37,7 +37,7 @@ class App extends React.Component {
 
   handleAddSubmit(val) {
     console.log('add!');
-    let newMovie = {title: val, key: this.state.keyNum};
+    let newMovie = {title: val};
     this.setState({
       movieList: [...this.state.movieList, newMovie],
       key: this.state.key + 1
