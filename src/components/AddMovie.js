@@ -24,7 +24,7 @@ class AddMovie extends React.Component {
               className="add-button"
               type="submit"
               onClick={() => {this.props.handleAddSubmit(this.state.inputVal)}}>
-              Add
+              add
             </button>
         </div>
 

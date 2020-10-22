@@ -24,7 +24,7 @@ class SearchBar extends React.Component {
           className="search-button"
           type="submit"
           onClick={(event) => {this.props.handleSearchSubmit(event.target.value)}}>
-          Submit
+          submit
         </button>
       </div>
 

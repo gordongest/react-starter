@@ -1,7 +1,14 @@
 import React from 'react';
 
 var MovieListEntry = ({movie}) => (
-  <li>{movie.title}<button>watch</button></li>
+  <li className="movie-entry">
+    {movie.title}
+    <button
+      type="button"
+      className="watch-button">
+      watch
+    </button>
+  </li>
 )
 
 export default MovieListEntry;
