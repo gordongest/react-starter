@@ -29,11 +29,13 @@ class App extends React.Component {
   }
 
   handleSearchSubmit(val) {
-    console.log('searched!');
+    console.log('searched!')
     this.setState({
       searchVal: val
-    }, function() {console.log(this.state)});
-  }
+    }, function() {
+      console.log(this.state)
+    });
+}
 
   handleAddSubmit(val) {
     console.log('added!');
