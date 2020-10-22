@@ -3,6 +3,7 @@ import movieListData from '../data/movieListData.js';
 import NavBar from './NavBar.js';
 import MovieList from './MovieList.js';
 import SearchBar from './SearchBar.js';
+import AddMovie from './AddMovie.js';
 
 
 class App extends React.Component {
@@ -11,16 +12,33 @@ class App extends React.Component {
 
     this.state = {
       movieList: {movieListData},
-      searchVal: ''
+      searchVal: '',
+      addedMovie: ''
     }
 
-    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleSearchSubmit = this.handleSearchSubmit.bind(this)
+    this.handleAddSubmit = this.handleAddSubmit.bind(this)
   }
 
-  handleSubmit(val) {
-    console.log('clicked!');
+  handleChange(event) {
+    this.setState({
+      inputVal: event.target.value
+    }, function() {
+      console.log('inputVal:', this.state.inputVal)
+    });
+  }
+
+  handleSearchSubmit(val) {
+    console.log('search!');
     this.setState({
       searchVal: val
+    }, function() {console.log(this.state)});
+  }
+
+  handleAddSubmit(val) {
+    console.log('add!');
+    this.setState({
+      addedMovie: val
     }, function() {console.log(this.state)});
   }
 
@@ -33,7 +51,8 @@ class App extends React.Component {
         <NavBar />
       </nav>
       <div>
-        <SearchBar handleSubmit={this.handleSubmit} />
+        <AddMovie handleChange={this.handleChange} handleAddSubmit={this.handleAddSubmit} />
+        <SearchBar handleChange={this.handleChange} handleSearchSubmit={this.handleSearchSubmit} />
         <div className="movie-list">
           <MovieList searchVal={this.state.searchVal} movies={movieListData} />
         </div>

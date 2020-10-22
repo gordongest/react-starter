@@ -9,15 +9,7 @@ class SearchBar extends React.Component {
       inputVal: ''
     }
 
-    this.handleChange = this.handleChange.bind(this)
-  }
-
-  handleChange(event) {
-    this.setState({
-      inputVal: event.target.value
-    }, function() {
-      console.log('inputVal:', this.state.inputVal)
-    });
+    this.handleChange = this.props.handleChange.bind(this)
   }
 
   render() {
@@ -31,11 +23,13 @@ class SearchBar extends React.Component {
         <button
           className="search-button"
           type="submit"
-          onClick={() => {this.props.handleSubmit(this.state.inputVal)}}>
-          <span>Submit</span>
+          onClick={() => {this.props.handleSearchSubmit(this.state.inputVal)}}>
+          Submit
         </button>
       </div>
+
     )
+
   }
 
 }
