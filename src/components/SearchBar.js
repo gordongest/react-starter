@@ -18,12 +18,12 @@ class SearchBar extends React.Component {
 
       <div className="search-bar">
         <input type="text"
-          onChange={this.handleChange}
+          onChange={(event) => {this.props.handleSearchSubmit(event.target.value)}}
           placeholder="Search..." />
         <button
           className="search-button"
           type="submit"
-          onClick={() => {this.props.handleSearchSubmit(this.state.inputVal)}}>
+          onClick={(event) => {this.props.handleSearchSubmit(event.target.value)}}>
           Submit
         </button>
       </div>
