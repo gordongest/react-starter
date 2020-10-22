@@ -10,13 +10,12 @@ class App extends React.Component {
     super();
 
     this.state = {
+      movieList: {movieListData},
       searchVal: ''
     }
 
     this.handleSubmit = this.handleSubmit.bind(this)
   }
-
-
 
   handleSubmit(val) {
     console.log('clicked!');
@@ -36,7 +35,7 @@ class App extends React.Component {
       <div>
         <SearchBar handleSubmit={this.handleSubmit} />
         <div className="movie-list">
-          <MovieList movies={movieListData} />
+          <MovieList movies={this.state.movieList} />
         </div>
       </div>
     </div>
