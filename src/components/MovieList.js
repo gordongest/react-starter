@@ -16,6 +16,10 @@ class MovieList extends React.Component {
       console.log('rendered')
       return true;
     }
+    if (this.props.movies.length !== nextProps.movies.length) {
+      console.log('rendered')
+      return true;
+    }
     return false;
   }
 
@@ -27,6 +31,7 @@ class MovieList extends React.Component {
 
       <div>
         <ul>
+          {console.log(this.props)}
           {movies.map((movie) => {
             if (!searchVal.length) {
               return <MovieListEntry key={movie.key} movie={movie} />

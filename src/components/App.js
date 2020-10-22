@@ -11,9 +11,9 @@ class App extends React.Component {
     super();
 
     this.state = {
-      movieList: {movieListData},
+      movieList: [{title: 'Jurassic Park', key: '1'}],
       searchVal: '',
-      addedMovie: ''
+      keyNum: 'key'
     }
 
     this.handleSearchSubmit = this.handleSearchSubmit.bind(this)
@@ -37,9 +37,12 @@ class App extends React.Component {
 
   handleAddSubmit(val) {
     console.log('add!');
+    let newMovie = {title: val, key: this.state.keyNum};
     this.setState({
-      addedMovie: val
-    }, function() {console.log(this.state)});
+      movieList: [...this.state.movieList, newMovie],
+      key: this.state.key + 1
+    })
+    // , function() {console.log(this.state)});
   }
 
   render() {
@@ -54,7 +57,7 @@ class App extends React.Component {
         <AddMovie handleChange={this.handleChange} handleAddSubmit={this.handleAddSubmit} />
         <SearchBar handleChange={this.handleChange} handleSearchSubmit={this.handleSearchSubmit} />
         <div className="movie-list">
-          <MovieList searchVal={this.state.searchVal} movies={movieListData} />
+          <MovieList searchVal={this.state.searchVal} movies={this.state.movieList} />
         </div>
       </div>
     </div>
