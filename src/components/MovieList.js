@@ -13,6 +13,7 @@ class MovieList extends React.Component {
 
   shouldComponentUpdate(nextProps) {
     if (this.props.searchVal !== nextProps.searchVal) {
+      console.log('rendered')
       return true;
     }
     return false;
@@ -20,15 +21,17 @@ class MovieList extends React.Component {
 
   render() {
 
+    const { searchVal, movies } = this.props;
+
     return (
 
       <div>
         <ul>
-          {this.props.movies.movieListData.map((movie) => {
-            if (!this.props.searchVal.length) {
+          {movies.map((movie) => {
+            if (!searchVal.length) {
               return <MovieListEntry key={movie.key} movie={movie} />
-            } else if (this.props.searchVal.length) {
-              if (movie.title.toLowerCase().includes(this.props.searchVal.toLowerCase())) {
+            } else if (searchVal.length) {
+              if (movie.title.toLowerCase().includes(searchVal.toLowerCase())) {
                 return <MovieListEntry key={movie.key} movie={movie} />
               {/* } else {
                 this.state.noMatch++;

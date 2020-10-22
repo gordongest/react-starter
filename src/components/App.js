@@ -35,7 +35,7 @@ class App extends React.Component {
       <div>
         <SearchBar handleSubmit={this.handleSubmit} />
         <div className="movie-list">
-          <MovieList searchVal={this.state.searchVal} movies={this.state.movieList} />
+          <MovieList searchVal={this.state.searchVal} movies={movieListData} />
         </div>
       </div>
     </div>
