@@ -11,7 +11,7 @@ class App extends React.Component {
     super();
 
     this.state = {
-      movieList: [{title: 'Jurassic Park', key: '1'}],
+      movieList: [],
       searchVal: '',
       keyNum: 'key'
     }

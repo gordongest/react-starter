@@ -33,6 +33,9 @@ class MovieList extends React.Component {
         <ul>
           {console.log(this.props)}
           {movies.map((movie) => {
+            if (!movies.length) {
+              <div>Add some movies!</div>
+            }
             if (!searchVal.length) {
               return <MovieListEntry key={movie.key} movie={movie} />
             } else if (searchVal.length) {
