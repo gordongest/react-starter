@@ -24,17 +24,31 @@ class MovieListEntry extends React.Component {
 
     const { movie } = this.props
 
+    var bgColor = {
+      backgroundColor: 'white'
+    }
+
+    var watchText = 'watch'
+
+    if (this.state.watched === true) {
+      bgColor = {
+        backgroundColor: '#FF687E',
+        color: 'white'
+      };
+      watchText = 'watched';
+    }
+
     return (
 
-      <li className="movie-entry">
-        {movie.title}
-        <button
-          type="submit"
+      <div className="movie-entry">
+        <div className="movie-title">{movie.title}</div>
+        <div
           className="watch-button"
-          onClick={() => {this.handleWatched()}}>
-          watched
-        </button>
-      </li>
+          onClick={() => {this.handleWatched()}}
+          style={bgColor}>
+          {watchText}
+        </div>
+      </div>
 
     )
   }

@@ -20,12 +20,12 @@ class AddMovie extends React.Component {
             <input type="text"
               onChange={this.handleChange}
               placeholder="Add a movie..." />
-            <button
+            <div
               className="add-button"
               type="submit"
               onClick={() => {this.props.handleAddSubmit(this.state.inputVal)}}>
               add
-            </button>
+            </div>
         </div>
 
     )

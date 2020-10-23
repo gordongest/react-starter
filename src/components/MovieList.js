@@ -8,7 +8,7 @@ class MovieList extends React.Component {
     super(props)
 
     this.state = {
-      noMatch: 0
+      watchList: false
     }
   }
 
@@ -31,17 +31,15 @@ class MovieList extends React.Component {
     return (
 
       <div>
-        <ul>
-          {movies.map((movie) => {
-            if (!searchVal.length) {
+        {movies.map((movie) => {
+          if (!searchVal.length) {
+            return <MovieListEntry key={movie.key} movie={movie} />
+          } else if (searchVal.length) {
+            if (movie.title.toLowerCase().includes(searchVal.toLowerCase())) {
               return <MovieListEntry key={movie.key} movie={movie} />
-            } else if (searchVal.length) {
-              if (movie.title.toLowerCase().includes(searchVal.toLowerCase())) {
-                return <MovieListEntry key={movie.key} movie={movie} />
-              }
             }
-          })}
-        </ul>
+          }
+        })}
       </div>
     )
 

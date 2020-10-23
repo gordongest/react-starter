@@ -54,7 +54,7 @@ class App extends React.Component {
      <nav className="nav-bar">
         <NavBar />
       </nav>
-      <div>
+      <div className="container">
         <AddMovie handleChange={this.handleChange} handleAddSubmit={this.handleAddSubmit} />
         <SearchBar handleChange={this.handleChange} handleSearchSubmit={this.handleSearchSubmit} />
         <div className="movie-list">
