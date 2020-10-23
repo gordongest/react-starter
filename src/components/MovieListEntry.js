@@ -40,7 +40,7 @@ class MovieListEntry extends React.Component {
 
     return (
 
-      <div className="movie-entry">
+      <div className="movie-entry fade-in">
         <div className="movie-title">{movie.title}</div>
         <div
           className="watch-button"
